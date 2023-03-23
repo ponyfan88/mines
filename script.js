@@ -6,6 +6,8 @@ const REVEALED_MINE_COLOR = "#db1414";
 const FLAGGED_TILE_COLOR = "#143edb";
 const HIDDEN_TILE_COLOR = "#e1dcdc";
 
+const BADFLAGS_TEXT = "incorrect/missing flags: "
+
 document.getElementById("size-input").value = size;
 document.getElementById("chance-input").value = chance;
 
@@ -48,7 +50,7 @@ function start() {
 
     board();
 
-    document.getElementById("bad-flags").innerText = "incorrect flags: " + checkRemainingMines().toString();
+    document.getElementById("bad-flags").innerText = BADFLAGS_TEXT + checkRemainingMines().toString();
 }
 
 let myMines = [...Array(size)].map(e => Array(size));
@@ -168,7 +170,7 @@ function flagMine(x, y) {
 
     checkForWin();
 
-    document.getElementById("bad-flags").innerText = "incorrect flags: " + checkRemainingMines().toString();
+    document.getElementById("bad-flags").innerText = BADFLAGS_TEXT + checkRemainingMines().toString();
 
     return false;
 }
