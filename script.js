@@ -257,6 +257,8 @@ function revealChain(count, _x, _y) {
             }
         }
     }
+
+    document.getElementById("bad-flags").innerText = BADFLAGS_TEXT + checkRemainingMines().toString();
 }
 
 function checkForWin() {
