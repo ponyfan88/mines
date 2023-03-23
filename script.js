@@ -119,10 +119,11 @@ function clickOnMine(x,y) {
 
 function reveal(x, y) {
     shownBoard[y][x] = true;
+    flagged[y][x] = false;
 
     let mineCount = checkMines(x,y);
 
-    myMines[y][x].style.backgroundColor = REVEALED_SAFE_COLOR
+    myMines[y][x].style.backgroundColor = REVEALED_SAFE_COLOR;
 
     if (mineCount != 0) {
         myMines[y][x].innerText = mineCount;
