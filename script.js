@@ -99,6 +99,7 @@ function clickOnMine(x,y) {
     myMines[y][x].style.backgroundColor = REVEALED_SAFE_COLOR;
     if (mineCount == 0) {
         revealChain(0, x, y);
+        myMines[y][x].innerText = "";
     }
     else {
         myMines[y][x].innerText = mineCount;
