@@ -118,6 +118,9 @@ function reveal(x, y) {
     if (mineCount != 0) {
         myMines[y][x].innerText = mineCount;
     }
+    else {
+        myMines[y][x].innerText = "";
+    }
 }
 
 function flagMine(x, y) {
