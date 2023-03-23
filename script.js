@@ -235,7 +235,6 @@ function revealChain(count, _x, _y) {
 
                     shownBoard[y][x] = true;
 
-                    checkedMines[y][x] = true;
                     checkedMines[_y][_x] = true;
 
                     if (checkMines(x, y) == 0) {
