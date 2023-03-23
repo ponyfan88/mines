@@ -1,0 +1,79 @@
+/*#region font*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap');
+
+body {
+    font-family: 'Heebo', 'Roboto', sans-serif;
+    color: #E1DCDC;
+}
+
+/*#endregion font*/
+
+/*#region background*/
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #313131;
+}
+
+/*#endregion background*/
+
+/*#region fade in on load*/
+
+* {
+    animation: entrance 750ms; 
+}
+
+@keyframes entrance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*#endregion fade in on load*/
+
+/*#region general formatting*/
+
+:root {
+    --size: 20;
+    --gap: 0.5rem;
+    --mine-size: 2rem;
+}
+
+.mineButton {
+    background-color: black;
+    width: var(--mine-size);
+    height: var(--mine-size);
+    display: inline-block;
+}
+
+#minesweeper-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap);
+}
+
+#minesweeper-container > div {
+    display: grid;
+    max-width: min-content;
+    gap: var(--gap);
+    grid-template-columns: repeat(var(--size), 1fr);
+}
+
+/*#endregion general formatting*/
+
+
+
+/*
+
+##===============================##
+|| guru meditation; keep it calm ||
+##===============================##
+
+*/
