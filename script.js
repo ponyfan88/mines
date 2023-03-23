@@ -76,6 +76,7 @@ function clickOnMine(x,y) {
 
     if (mines[y][x]) {
         myMines[y][x].style.backgroundColor = "red"
+        revealAll(true);
         endGame();
         return;
     }
@@ -246,7 +247,7 @@ function checkForWin() {
     alert("you win!")
     gameEnded = true;
 
-    revealAll();
+    revealAll(false);
 
     return true;
 }
