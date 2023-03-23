@@ -130,7 +130,13 @@ function flagMine(x, y) {
     if (shownBoard[y][x]) {
         if (flagged[y][x]) {
             myMines[y][x].style.backgroundColor = REVEALED_SAFE_COLOR;
-            myMines[y][x].innerText = checkMines(x, y);
+            let mineCount = checkMines(x, y)
+            if (mineCount > 0) {
+                myMines[y][x].innerText = mineCount;
+            }
+            else {
+                myMines[y][x].innerText = "";
+            }
         }
         else {
             myMines[y][x].style.backgroundColor = FLAGGED_TILE_COLOR;
