@@ -20,6 +20,10 @@ let gameEnded = false;
 let checkedMines = Array.from(Array(size), _ => Array(size).fill(false));
 
 document.getElementById("start-button").addEventListener("click", function() {
+    start();
+})
+
+function start() {
     size = parseInt(document.getElementById("size-input").value);
     chance = parseInt(document.getElementById("chance-input").value);
 
@@ -43,7 +47,7 @@ document.getElementById("start-button").addEventListener("click", function() {
     mines[0][0] = false; // top left is always clickable
 
     board();
-})
+}
 
 let myMines = [...Array(size)].map(e => Array(size));
 
@@ -282,3 +286,5 @@ function revealAll(dead = false) {
         }
     }
 }
+
+start();
