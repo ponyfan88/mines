@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Heebo', 'Roboto', sans-serif;
-    color: #E1DCDC;
+    color: #e1dcdc;
 }
 
 /*#endregion font*/
@@ -13,8 +13,10 @@ body {
 /*#region background*/
 
 html, body {
-    height: 100%;
-    width: 100%;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
     background-color: #313131;
 }
 
@@ -23,7 +25,7 @@ html, body {
 /*#region fade in on load*/
 
 * {
-    animation: entrance 750ms; 
+    animation: entrance 750ms;
 }
 
 @keyframes entrance {
@@ -39,20 +41,34 @@ html, body {
 
 /*#region general formatting*/
 
+* {
+    border: 0;
+}
+
+input {
+    background-color: #e1dcdc;
+}
+
 :root {
-    --size: 20;
+    --size: 1;
     --gap: 0.5rem;
-    --mine-size: 2rem;
 }
 
 .mineButton {
-    background-color: black;
+    --mine-size: calc(((80vh - (var(--size) * var(--gap))) / var(--size)));
+    background-color: #e1dcdc;
     width: var(--mine-size);
-    height: var(--mine-size);
-    display: inline-block;
+    aspect-ratio: 1;
+    line-height: var(--mine-size);
+    text-align: center;
+    border-radius: 0.5rem;
 }
 
 #minesweeper-container {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr;
@@ -64,6 +80,15 @@ html, body {
     max-width: min-content;
     gap: var(--gap);
     grid-template-columns: repeat(var(--size), 1fr);
+}
+
+.controls {
+    margin: 1rem;
+}
+
+.stats {
+    min-height: 1.1rem;
+    font-size: 1rem;
 }
 
 /*#endregion general formatting*/
