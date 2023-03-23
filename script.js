@@ -94,12 +94,15 @@ function clickOnMine(x,y) {
         return;
     }
 
+    flagged[y][x] = false;
+
     myMines[y][x].style.backgroundColor = REVEALED_SAFE_COLOR;
     if (mineCount == 0) {
         revealChain(0, x, y);
     }
     else {
         myMines[y][x].innerText = mineCount;
+        shownBoard[y][x] = true;
     }
 
     checkForWin();
