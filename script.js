@@ -47,6 +47,8 @@ function start() {
     mines[0][0] = false; // top left is always clickable
 
     board();
+
+    document.getElementById("bad-flags").innerText = "incorrect flags: " + checkRemainingMines().toString();
 }
 
 let myMines = [...Array(size)].map(e => Array(size));
@@ -150,8 +152,6 @@ function flagMine(x, y) {
             myMines[y][x].style.backgroundColor = FLAGGED_TILE_COLOR;
             myMines[y][x].innerText = "⚑";
         }
-
-        flagged[y][x] = !flagged[y][x];
     }
     else {
         if (flagged[y][x]) {
@@ -162,11 +162,13 @@ function flagMine(x, y) {
             myMines[y][x].style.backgroundColor = FLAGGED_TILE_COLOR;
             myMines[y][x].innerText = "⚑";
         }
-
-        flagged[y][x] = !flagged[y][x];
     }
 
+    flagged[y][x] = !flagged[y][x];
+
     checkForWin();
+
+    document.getElementById("bad-flags").innerText = "incorrect flags: " + checkRemainingMines().toString();
 
     return false;
 }
@@ -285,6 +287,19 @@ function revealAll(dead = false) {
             }
         }
     }
+}
+
+function checkRemainingMines() {
+    let badFlags = 0;
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            if (mines[y][x] != flagged[y][x]) {
+                badFlags++;
+            }
+        }
+    }
+
+    return badFlags;
 }
 
 start();
